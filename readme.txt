@@ -6,7 +6,7 @@ Requires at least: 3.1
 Tested up to: 3.3.1
 Stable tag: 1.0.0
 
-Automatically changes your WordPress site content links for unregistered users by dynamically changing the link target using a class="authenticatelink".
+Automatically changes your WordPress site content links for unregistered users by dynamically changing the link target.
 
 == Description ==
 
@@ -24,7 +24,7 @@ This is done dynamically through Javascript which picks up a specific class plac
 Manual Installation from Download File:
 
 1. Extract downloaded ZIP file to a location of your choice.
-2. Upload folder`dynamic-registration-links` to your `/wp-content/plugins/` directory.
+2. Upload folder `dynamic-registration-links` to your `/wp-content/plugins/` directory.
 3. Activate the plugin through the 'Plugins' menu in your WordPress Site.
 4. Options can be found in your admin menu under "Settings / Authenticate Links".
 
