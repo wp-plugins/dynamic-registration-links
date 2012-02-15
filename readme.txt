@@ -4,7 +4,7 @@ Donate link: http://www.presspixels.com/donations/
 Tags: dynamic, automatic, registration, register, links
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 1.0.0
+Stable tag: 1.0
 
 Automatically changes your WordPress site content links for unregistered users by dynamically changing the link target.
 
