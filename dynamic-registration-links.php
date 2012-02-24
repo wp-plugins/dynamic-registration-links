@@ -3,7 +3,7 @@
 Plugin Name: Dynamic Registration Links
 Plugin URI: http://www.presspixels.com/release/dynamic-registration-links/
 Description: <a href="http://www.presspixels.com">Press Pixels</a> <a href="http://www.presspixels.com/release/dynamic-registration-links/">Dynamic Registration Links</a> automatically changes your WordPress site content links for unregistered users. This is controlled by an applied <strong>specified link class</strong>, which directs users to a <strong>specified redirect URL</strong> that is applied to WordPress Content, Excerpts and Widgets. Settings are under <strong>Authenticate Links</strong> in your <strong>Settings menu</strong>.
-Version: 1.0
+Version: 1.0.1
 Author: Lumo & Skashi @ Press Pixels
 Author URI: http://www.presspixels.com
 
@@ -59,10 +59,10 @@ class AuthenticateLinks {
 	}
 
 	function al_link_replace( $text ) {
-    $redirect_url = get_option( 'al_redirect_url', 'wp-login.php' );
-    $attr         = get_option( 'al_attribute', 'class' );
-    $value        = get_option( 'al_value', 'authenticatelink' );
-    $tag          = get_option( 'al_tag', '[a|div]' );
+    $redirect_url 	= get_option( 'al_redirect_url', 'wp-login.php' );
+    $attr         	= get_option( 'al_attribute', 'class' );
+    $value        	= get_option( 'al_value', 'authenticatelink' );
+    $tag          	= get_option( 'al_tag', '[a|div]' );
 
     $regex        = "/<({$tag})(.*?){$attr}=(['\"])(.*?){$value}(.*?)\\3[^>]*>(.*?)(<\/\\1>)/";
     $size         = preg_match_all($regex, $text, $matches, PREG_PATTERN_ORDER );
@@ -86,8 +86,16 @@ function setBackLink() {
 
 }
 
-
-
+function al_custom_css() {
+    $redirect_css 	= get_option( 'al_redirect_css', 'color:red;text-decoration:underline' );
+    if ( !is_user_logged_in()) { ?>
+    	<style type="text/css">
+    		a.authenticatelink {<?php echo $redirect_css ?>}
+    	</style>
+    <?php }
+}
+    
+add_action('wp_head', 'al_custom_css');
 
 if ( !is_admin() ) add_action( 'init', array('AuthenticateLinks', 'register_filters') );
 if ( !is_admin() and get_option( 'al_link', 0 ) == 1 ) add_action( 'get_template_part_content', array('AuthenticateLinks', 'setBackLink') );

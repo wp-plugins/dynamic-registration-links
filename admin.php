@@ -19,6 +19,8 @@ if (!class_exists('AuthenticateLinksAdmin')) {
 
     var $_page_types = array(
         'al_redirect_url',
+        'al_redirect_text',
+        'al_redirect_css',
         'al_redirect_logged_in_users',
         'al_link_the_content',
         'al_link_the_excerpt',
@@ -66,9 +68,8 @@ if (!class_exists('AuthenticateLinksAdmin')) {
 						<div class="handlediv" title="Click to toggle"><br></div>
 						<h3 class="hndle"><span>Core Settings</span></h3>
 						<div class="inside">
-						
 						<p><a href="http://www.presspixels.com">Press Pixels</a> <a href="http://www.presspixels.com/release/dynamic-registration-links/">Dynamic Registration Links</a> automatically changes your WordPress site content links for unregistered users. Add the class attribute <i>class="authenticatelink"</i> as shown below to force redirection to your specified URL.</p>
-						<p>&lt;a href="http://www.presspixels.com" <strong>class="authenticatelink"</strong>&gt;Press Pixels!&lt;/a&gt;</p>
+						<pre>&lt;a href="http://www.presspixels.com" <strong>class="authenticatelink"</strong>&gt;<span style="<?php echo get_option('al_redirect_css', 'color:red;text-decoration:underline')?>">Press Pixels!</span>&lt;/a&gt;</pre>
 						
 							<table class="form-table">
 								<tbody>
@@ -78,6 +79,14 @@ if (!class_exists('AuthenticateLinksAdmin')) {
 										</th>
 										<td>
 											<input id="twp_errmsg" name="al_redirect_url" type="text" class="regular-text" value="<?php echo get_option('al_redirect_url', 'wp-login.php')?>" size="30">
+										</td>
+									</tr>
+									<tr valign="top">
+										<th scope="row">
+											<label for="twp_errmsg">Redirect CSS (Blank for None)</label>
+										</th>
+										<td>
+											<input id="twp_errmsg" name="al_redirect_css" type="text" class="regular-text" value="<?php echo get_option('al_redirect_css', 'color:red;text-decoration:underline')?>" size="30">
 										</td>
 									</tr>
 									<tr valign="top">

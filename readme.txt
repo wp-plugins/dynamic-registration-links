@@ -4,7 +4,7 @@ Donate link: http://www.presspixels.com/donations/
 Tags: dynamic, automatic, registration, register, links
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 Automatically changes your WordPress site content links for unregistered users by dynamically changing the link target.
 
@@ -41,10 +41,16 @@ Did you add the class="authenticatelink" to your links you want authenticated?
 
 == Changelog ==
 
+= 1.0.1 =
+* Added CSS Styling to Authenticate Links. Styles are shown when users not logged in.
+
 = 1.0 =
 * First Release, no changes yet!
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+* Nice new CSS option. Upgrade if you like custom link styles.
 
 = 1.0 =
 No need to upgrade, current stable first release.
